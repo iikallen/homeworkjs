@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Приветствие пользователя
+let userName = prompt("Введите ваше имя:");
+alert("Привет, " + userName + "!");
+
+// 2. Вычисление возраста пользователя
+const currentYear = new Date().getFullYear();
+let birthYear = prompt("Введите год вашего рождения:");
+let userAge = currentYear - birthYear;
+alert("Вам " + userAge + " лет.");
+
+// 3. Вычисление периметра квадрата
+let squareSide = prompt("Введите длину стороны квадрата:");
+let squarePerimeter = squareSide * 4;
+alert("Периметр квадрата равен " + squarePerimeter + ".");
+
+// 4. Вычисление площади окружности
+const PI = Math.PI;
+let circleRadius = prompt("Введите радиус окружности:");
+let circleArea = PI * circleRadius * circleRadius;
+alert("Площадь окружности равна " + circleArea + ".");
+
+// 5. Вычисление скорости движения
+let distance = prompt("Введите расстояние между городами в км:");
+let time = prompt("Введите время в часах, за которое хотите добраться:");
+let speed = distance / time;
+alert("Чтобы добраться за " + time + " часов, нужно двигаться со скоростью " + speed + " км/ч.");
+
+// 6. Конвертер валют
+const USD_to_EUR = 0.88;
+let dollars = prompt("Введите количество долларов:");
+let euros = dollars * USD_to_EUR;
+alert(dollars + " долларов равно " + euros + " евро.");
+
+// 7. Вычисление количества файлов на флешке
+let flashDriveSize = prompt("Введите объем флешки в Гб:");
+let filesCount = Math.floor(flashDriveSize * 1024 / 820);
+alert("На флешке объемом " + flashDriveSize + " Гб поместится " + filesCount + " файлов размером 820 Мб.");
+
+// 8. Покупка шоколадок
+let walletMoney = prompt("Введите сумму денег в кошельке:");
+let chocolatePrice = prompt("Введите цену одной шоколадки:");
+let chocolatesCount = Math.floor(walletMoney / chocolatePrice);
+let change = walletMoney % chocolatePrice;
+alert("Вы можете купить " + chocolatesCount + " шоколадок, и у вас останется " + change + " денег.");
+
+// 9. Вывод трехзначного числа задом наперед
+let threeDigitNumber = prompt("Введите трехзначное число:");
+let reversedNumber = threeDigitNumber.split("").reverse().join("");
+alert("Число задом наперед: " + reversedNumber);
+
+// 10. Проверка на четность
+let userNumber = prompt("Введите целое число:");
+let isEven = userNumber % 2 === 0;
+alert("Число " + (isEven ? "четное" : "нечетное") + ".");
+
+    </script>
+</body>
+</html>
