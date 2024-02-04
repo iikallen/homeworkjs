@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 1.
+let age = prompt("Введите ваш возраст:");
+let userCategory;
+
+if (age >= 0 && age <= 2) {
+    userCategory = "ребенок";
+} else if (age >= 12 && age <= 18) {
+    userCategory = "подросток";
+} else if (age >= 18 && age < 60) {
+    userCategory = "взрослый";
+} else if (age >= 60) {
+    userCategory = "пенсионер";
+} else {
+    userCategory = "неверный возраст";
+}
+
+alert("Вы являетесь " + userCategory + ".");
+
+// 2. 
+let number = prompt("Введите число от 0 до 9:");
+let specialSymbol;
+
+switch (number) {
+    case "0":
+        specialSymbol = ")";
+        break;
+    case "1":
+        specialSymbol = "!";
+        break;
+    case "2":
+        specialSymbol = "@";
+        break;
+    case "3":
+        specialSymbol = "#";
+        break;
+    case "4":
+        specialSymbol = "$";
+        break;
+    case "5":
+        specialSymbol = "%";
+        break;
+    case "6":
+        specialSymbol = "^";
+        break;
+    case "7":
+        specialSymbol = "&";
+        break;
+    case "8":
+        specialSymbol = "*";
+        break;
+    case "9":
+        specialSymbol = "(";
+        break;
+    default:
+        specialSymbol = "неверное число";
+}
+
+alert("Спецсимвол для числа " + number + " : " + specialSymbol);
+
+
+// 3. 
+let number = prompt("Введите трехзначное число:");
+let digit1 = number[0];
+let digit2 = number[1];
+let digit3 = number[2];
+let isSameDigits = false;
+
+if (digit1 === digit2 || digit1 === digit3 || digit2 === digit3) {
+    isSameDigits = true;
+}
+
+alert("В числе " + number + " " + (isSameDigits ? "есть" : "нет") + " одинаковых цифр.");
+
+// 4.
+let year = prompt("Введите год:");
+
+if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {
+    alert("Год " + year + " - високосный.");
+} else {
+    alert("Год " + year + " - не високосный.");
+}
+
+// 5.
+let number = prompt("Введите пятизначное число:");
+let reversedNumber = number.split("").reverse().join("");
+
+if (number === reversedNumber) {
+    alert("Число " + number + " - палиндром.");
+} else {
+    alert("Число " + number + " - не палиндром.");
+}
+
+// 6.
+const USD_to_EUR = 0.88;
+const USD_to_UAN = 27.50;
+const USD_to_AZN = 1.70;
+
+let amountUSD = prompt("Введите сумму в долларах:");
+let currency = prompt("Введите валюту для конвертации (EUR, UAN, AZN):");
+let result;
+
+switch (currency) {
+    case "EUR":
+        result = amountUSD * USD_to_EUR;
+        break;
+    case "UAN":
+        result = amountUSD * USD_to_UAN;
+        break;
+    case "AZN":
+        result = amountUSD * USD_to_AZN;
+        break;
+    default:
+        result = "неверная валюта";
+}
+
+alert(amountUSD + " долларов равно " + result + " " + currency + ".");
+
+// 7.
+let purchaseAmount = prompt("Введите сумму покупки:");
+
+if (purchaseAmount >= 200 && purchaseAmount < 300) {
+    purchaseAmount *= 0.97; // скидка 3%
+} else if (purchaseAmount >= 300 && purchaseAmount < 500) {
+    purchaseAmount *= 0.95; // скидка 5%
+} else if (purchaseAmount >= 500) {
+    purchaseAmount *= 0.93; // скидка 7%
+}
+
+alert("Сумма к оплате со скидкой: " + purchaseAmount.toFixed(2) + " руб.");
+
+// 8. 
+let circleLength = prompt("Введите длину окружности:");
+let squarePerimeter = prompt("Введите периметр квадрата:");
+let circleDiameter = circleLength / Math.PI;
+let squareSide = squarePerimeter / 4;
+let canFit = circleDiameter <= squareSide;
+
+alert("Окружность " + (canFit ? "может" : "не может") + " поместиться в указанный квадрат.");
+
+// 9. 
+let score = 0;
+
+let question1 = prompt("Сколько будет 2 + 2?\n1) 3\n2) 4\n3) 5\nВведите номер варианта ответа:");
+if (question1 === "2") {
+    score += 2;
+}
+
+let question2 = prompt("Какая столица Франции?\n1) Берлин\n2) Лондон\n3) Париж\nВведите номер варианта ответа:");
+if (question2 === "3") {
+    score += 2;
+}
+
+let question3 = prompt("Сколько будет 3 * 5?\n1) 10\n2) 15\n3) 20\nВведите номер варианта ответа:");
+if (question3 === "2") {
+    score += 2;
+}
+
+alert("Вы набрали " + score + " баллов из 6.");
+
+// 10.
+let day = prompt("Введите день:");
+let month = prompt("Введите месяц:");
+let year = prompt("Введите год:");
+
+let date = new Date(year, month - 1, day);
+date.setDate(date.getDate() + 1);
+
+let nextDay = date.getDate();
+let nextMonth = date.getMonth() + 1;
+let nextYear = date.getFullYear();
+
+alert("Следующая за указанной дата: " + nextDay + "." + nextMonth + "." + nextYear + ".");
+
+// 1. 
+let compareNumbers = (a, b) => {
+    return a < b ? -1 : (a > b ? 1 : 0);
+};
+
+let num1 = 5;
+let num2 = 10;
+let comparisonResult = compareNumbers(num1, num2);
+alert(`Результат сравнения чисел ${num1} и ${num2}: ${comparisonResult}`);
+
+// 2.
+let factorial = (n) => {
+    if (n === 0 || n === 1) {
+        return 1;
+    } else {
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+};
+
+let number = 5;
+let factorialResult = factorial(number);
+alert(`Факториал числа ${number}: ${factorialResult}`);
+
+// 3.
+let combineDigits = (a, b, c) => {
+    return parseInt(`${a}${b}${c}`);
+};
+
+let digit1 = 1;
+let digit2 = 4;
+let digit3 = 9;
+let combinedNumber = combineDigits(digit1, digit2, digit3);
+alert(`Объединение цифр ${digit1}, ${digit2} и ${digit3}: ${combinedNumber}`);
+
+// 4. 
+let calculateArea = (length, width = length) => {
+    return length * width;
+};
+
+let rectangleLength = 5;
+let rectangleWidth = 3;
+let area = calculateArea(rectangleLength, rectangleWidth);
+alert(`Площадь прямоугольника: ${area}`);
+
+// 5.
+let isPerfectNumber = (number) => {
+    let sum = 0;
+    for (let i = 1; i < number; i++) {
+        if (number % i === 0) {
+            sum += i;
+        }
+    }
+    return sum === number;
+};
+
+let testNumber = 28;
+let isPerfect = isPerfectNumber(testNumber);
+alert(`${testNumber} ${isPerfect ? 'является' : 'не является'} совершенным числом`);
+
+// 6.
+let printPerfectNumbersInRange = (min, max) => {
+    for (let i = min; i <= max; i++) {
+        if (isPerfectNumber(i)) {
+            alert(`Совершенное число в диапазоне: ${i}`);
+        }
+    }
+};
+
+let minRange = 1;
+let maxRange = 100;
+alert(`Совершенные числа в диапазоне от ${minRange} до ${maxRange}:`);
+printPerfectNumbersInRange(minRange, maxRange);
+
+// 7.
+let formatTime = (hours, minutes = 0, seconds = 0) => {
+    return `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+};
+
+let hours = 9;
+let minutes = 25;
+let seconds = 45;
+let formattedTime = formatTime(hours, minutes, seconds);
+alert(`Время в формате "чч:мм:сс": ${formattedTime}`);
+
+// 8. 
+let timeToSeconds = (hours, minutes = 0, seconds = 0) => {
+    return hours * 3600 + minutes * 60 + seconds;
+};
+
+let timeInSeconds = timeToSeconds(hours, minutes, seconds);
+alert(`Время в секундах: ${timeInSeconds}`);
+
+// 9.
+let secondsToTime = (totalSeconds) => {
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds = totalSeconds % 60;
+    return formatTime(hours, minutes, seconds);
+};
+
+
+let totalSeconds = 3725;
+let convertedTime = secondsToTime(totalSeconds);
+alert(`Преобразование ${totalSeconds} секунд в формат "чч:мм:сс": ${convertedTime}`);
+
+// 10. 
+let calculateTimeDifference = (hours1, minutes1, seconds1, hours2, minutes2, seconds2) => {
+    let totalSeconds1 = timeToSeconds(hours1, minutes1, seconds1);
+    let totalSeconds2 = timeToSeconds(hours2, minutes2, seconds2);
+    let differenceInSeconds = Math.abs(totalSeconds1 - totalSeconds2);
+    return secondsToTime(differenceInSeconds);
+};
+
+let time1 = { hours: 12, minutes: 30, seconds: 15 };
+let time2 = { hours: 9, minutes: 45, seconds: 20 };
+let timeDifference = calculateTimeDifference(time1.hours, time1.minutes, time1.seconds, time2.hours, time2.minutes, time2.seconds);
+alert(`Разница между временами: ${timeDifference}`);
+
+
+    </script>
+</body>
+</html>
