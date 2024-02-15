@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1
+let start = parseInt(prompt("Введите начало диапазона:"));
+let end = parseInt(prompt("Введите конец диапазона:"));
+let sum = 0;
+for (let i = start; i <= end; i++) {
+    sum += i;
+}
+console.log("Сумма всех чисел в диапазоне:", sum);
+
+
+//2
+let num1 = parseInt(prompt("Введите первое число:"));
+let num2 = parseInt(prompt("Введите второе число:"));
+let gcd = 1;
+for (let i = 1; i <= Math.min(num1, num2); i++) {
+    if (num1 % i === 0 && num2 % i === 0) {
+        gcd = i;
+    }
+}
+console.log("Наибольший общий делитель:", gcd);
+
+
+//3
+
+let number = parseInt(prompt("Введите число:"));
+console.log("Делители числа", number + ":");
+for (let i = 1; i <= number; i++) {
+    if (number % i === 0) {
+        console.log(i);
+    }
+}
+
+
+//4
+
+let number = parseInt(prompt("Введите число:"));
+let count = 0;
+while (number !== 0) {
+    count++;
+    number = Math.floor(number / 10);
+}
+console.log("Количество цифр в числе:", count);
+
+
+//5
+
+let positive = 0, negative = 0, zeros = 0, even = 0, odd = 0;
+for (let i = 0; i < 10; i++) {
+    let num = parseInt(prompt("Введите число:"));
+    if (num > 0) {
+        positive++;
+    } else if (num < 0) {
+        negative++;
+    } else {
+        zeros++;
+    }
+    if (num % 2 === 0) {
+        even++;
+    } else {
+        odd++;
+    }
+}
+console.log("Положительные:", positive);
+console.log("Отрицательные:", negative);
+console.log("Нули:", zeros);
+console.log("Четные:", even);
+console.log("Нечетные:", odd);
+
+
+//6
+
+let again;
+do {
+    let num1 = parseFloat(prompt("Введите первое число:"));
+    let num2 = parseFloat(prompt("Введите второе число:"));
+    let operator = prompt("Введите оператор (+, -, *, /):");
+    let result;
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
+        default:
+            console.log("Неверный оператор");
+            continue;
+    }
+    console.log("Результат:", result);
+    again = confirm("Хотите решить еще один пример?");
+} while (again);
+
+
+//7
+
+let number = prompt("Введите число:");
+let shift = parseInt(prompt("На сколько цифр его сдвинуть:"));
+let shiftedNumber = number.slice(shift) + number.slice(0, shift);
+console.log("Результат сдвига:", shiftedNumber);
+
+
+//8
+
+let daysOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+let index = 0;
+let proceed;
+do {
+    console.log(daysOfWeek[index]);
+    proceed = confirm("Хотите увидеть следующий день?");
+    index = (index + 1) % 7;
+} while (proceed);
+
+
+//9
+
+for (let i = 2; i <= 9; i++) {
+    console.log("Таблица умножения для", i + ":");
+    for (let j = 1; j <= 10; j++) {
+        console.log(i + " * " + j + " = " + (i * j));
+    }
+    console.log("--------------------");
+}
+
+
+//10
+
+let min = 0;
+let max = 100;
+let guessed = false;
+while (!guessed) {
+    let guess = Math.floor((min + max) / 2);
+    let answer = prompt("Ваше число > " + guess + ", < " + guess + " или == " + guess + "?");
+    if (answer === ">") {
+        min = guess + 1;
+    } else if (answer === "<") {
+        max = guess - 1;
+    } else if (answer === "==") {
+        console.log("Поздравляем! Вы угадали число:", guess);
+        guessed = true;
+    } else {
+        console.log("Неверный ввод. Попробуйте еще раз.");
+    }
+}
+
+    </script>
+</body>
+</html>
