@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//1
+
+let numbers = [5, 10, 3, 8, 15, 7, 2, 12, 9, 4];
+let max = Math.max(...numbers);
+let min = Math.min(...numbers);
+
+console.log("Наибольшее значение массива: " + max);
+console.log("Наименьшее значение массива: " + min);
+
+//2
+
+let numbers = [];
+
+for (let i = 0; i < 5; i++) {
+    let num = parseFloat(prompt("Введите число:"));
+    numbers.push(num);
+}
+
+console.log("Массив:", numbers);
+let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+let average = sum / numbers.length;
+console.log("Сумма значений:", sum);
+console.log("Среднее значение массива:", average);
+
+
+//3
+
+let array1 = [3, 7, 10, 5, 8, 12, 6];
+let array2 = [3, 6, 11, 5, 7, 9, 6];
+
+for (let i = 0; i < 7; i++) {
+    if (array1[i] > array2[i]) {
+        console.log(`${array1[i]} больше, чем ${array2[i]}`);
+    } else if (array1[i] < array2[i]) {
+        console.log(`${array1[i]} меньше, чем ${array2[i]}`);
+    } else {
+        console.log(`${array1[i]} равно ${array2[i]}`);
+    }
+}
+
+
+//4
+
+let numbers = [3, 7, 10, 5, 8, 12, 6, 17, 22, 9];
+let evenNumbers = [];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+        evenNumbers.push(numbers[i]);
+    }
+}
+
+console.log("Исходный массив:", numbers);
+console.log("Массив с четными значениями:", evenNumbers);
+
+    </script>
+</body>
+</html>
