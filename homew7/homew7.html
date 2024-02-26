@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//1
+function stringToarray(str) {
+    var wordsArray = str.split(' ');
+    return wordsArray;
+}
+
+var str = 'Каждый охотник желает знать';
+var arr = stringToarray(str);
+console.log(arr); // ['Каждый', 'охотник', 'желает', 'знать']
+
+//2
+function delete_characters(str, length) {
+    var substring = str.substring(0, length);
+    return substring;
+}
+
+var str = 'Каждый охотник желает знать';
+document.writeln(delete_characters(str, 7)); // Каждый
+
+//3
+function insert_dash(str) {
+    var words = str.toUpperCase().split(' ');
+    var dashedStr = words.join('-');
+    return dashedStr;
+}
+
+var str = "HTML JavaScript PHP";
+document.writeln(insert_dash(str)); // 'HTML-JAVASCRIPT-PHP'
+
+
+//4
+function cursive_letter(str) {
+    var firstChar = str.charAt(0).toUpperCase();
+    var modifiedStr = firstChar + str.substring(1);
+    return modifiedStr;
+}
+
+var str = "string not starting with capital";
+document.writeln(cursive_letter(str)); // "String not starting with capital"
+
+//5
+function capitalize(str) {
+    var words = str.split(' ');
+    for (var i = 0; i < words.length; i++) {
+        var firstChar = words[i].charAt(0).toUpperCase();
+        var restOfWord = words[i].substring(1).toLowerCase();
+        words[i] = firstChar + restOfWord;
+    }
+    var capitalizedStr = words.join(' ');
+    return capitalizedStr;
+}
+
+var str = "каждый охотник желает знать";
+document.writeln(capitalize(str)); // "Каждый Охотник Желает Знать"
+
+//6
+function change_register(str) {
+    var result = '';
+    for (var i = 0; i < str.length; i++) {
+        var char = str.charAt(i);
+        if (char === char.toUpperCase()) {
+            result += char.toLowerCase();
+        } else {
+            result += char.toUpperCase();
+        }
+    }
+    return result;
+}
+
+var str = "КаЖдЫй ОхОтНиК жЕлАеТ зНаТь";
+document.writeln(change_register(str)); // "кАжДыЙ оХоТнИк ЖеЛаЕт ЗнАтЬ"
+
+//7
+function zeros(num, len, sign) {
+    var str = Math.abs(num).toString();
+    while (str.length < len) {
+        str = '0' + str;
+    }
+    if (sign === '+' || sign === '-') {
+        str = sign + str;
+    } else if (num < 0) {
+        str = '-' + str;
+    }
+    return str;
+}
+
+document.writeln(zeros(145, 5, '-')); // -00145
+document.writeln(zeros(33, 4, '+'));  // +0033 
+document.writeln(zeros(33, 4));       // 0033    
+
+//8
+function comparison(str1, str2) {
+    var lowerStr1 = str1.toLowerCase();
+    var lowerStr2 = str2.toLowerCase();
+    return lowerStr1 === lowerStr2;
+}
+
+document.writeln(comparison('string', 'StRiNg')); // true 
+document.writeln(comparison('ABCDe', 'AbcdW'));   // false
+
+//9
+function initCap(str) {
+    var words = str.split(' ');
+    for (var i = 0; i < words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1).toLowerCase();
+    }
+    var camelCaseStr = words.join('');
+    return camelCaseStr;
+}
+
+var str = "hEllo woRld";
+document.writeln(initCap(str)); // HelloWorld
+
+//10
+function initSnake(str) {
+    var snakeCaseStr = '';
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === str[i].toUpperCase() && i !== 0) {
+            snakeCaseStr += '_';
+        }
+        snakeCaseStr += str[i].toLowerCase();
+    }
+    return snakeCaseStr;
+}
+
+document.writeln(initSnake('HelloWorld')); // hello_world
+
+    </script>
+</body>
+</html>
