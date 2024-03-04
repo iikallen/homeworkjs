@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//1
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+const birthDate = prompt("Введите дату рождения в формате ГГГГ-ММ-ДД:");
+const age = calculateAge(birthDate);
+console.log("Возраст:", age);
+
+//2
+function divideWithPrecision(num1, num2, precision) {
+    const result = num1 / num2;
+    return result.toFixed(precision);
+}
+
+const num1 = parseFloat(prompt("Введите первое число:"));
+const num2 = parseFloat(prompt("Введите второе число:"));
+const precision = 2;
+const quotient = divideWithPrecision(num1, num2, precision);
+console.log("Частное:", quotient);
+
+//3
+const colors = ["красный", "зеленый", "синий", "желтый", "оранжевый"];
+const randomColorIndex = Math.floor(Math.random() * colors.length);
+const randomColor = colors[randomColorIndex];
+console.log("Случайный цвет:", randomColor);
+
+    </script>
+</body>
+</html>
