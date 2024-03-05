@@ -9,7 +9,7 @@ movies.forEach((item, index) => {
         </div>
         <div class="movie__info">
             <div class="movie__title">${item.name}</div>
-            <div class="movie__category">${item.category}</div>
+            <div class="movie__category">${item.category.join(', ')}</div>
             <div class="movie__average movie__average--red">${item.rating/10}</div>
         </div>
     </div>
