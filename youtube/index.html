@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Viewer</title>
+</head>
+<body>
+    <h1>YouTube Video Viewer</h1>
+    
+    <!-- Поле ввода для поиска -->
+    <input type="text" id="searchInput" placeholder="Введите запрос">
+    <button onclick="searchVideos()">Поиск</button>
+
+    <!-- Результаты поиска -->
+    <div id="searchResults"></div>
+
+    <!-- Видео плеер -->
+    <div id="videoPlayer"></div>
+
+    <!-- Лайки и дизлайки -->
+    <div id="likeDislike">
+        <span id="likes"></span> <button onclick="getLikes()">Получить лайки</button><br>
+        <span id="dislikes"></span> <button onclick="getDislikes()">Получить дизлайки</button>
+    </div>
+
+    <!-- Комментарии -->
+    <div id="comments"></div>
+
+    <!-- Скрипт для работы с YouTube API -->
+    <script src="app.js" defer>    </script>
+</body>
+</html>
