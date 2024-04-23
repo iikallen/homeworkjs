@@ -1,0 +1,16 @@
+.list-item {
+    margin-bottom: 30px;
+}
+
+.list-item .event-info {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 15px;
+    text-align: center;
+}
+
+.list-item .event-info img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
